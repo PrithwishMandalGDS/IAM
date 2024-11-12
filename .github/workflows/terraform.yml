@@ -23,8 +23,10 @@ jobs:
         with:
           terraform_version: 1.5.6  # Specify your required Terraform version
 
-      - name: Login to Terraform Cloud
-        run: terraform login
+      - name: Configure Terraform Cloud Credentials
+        run: |
+          mkdir -p ~/.terraform.d
+          echo '{"credentials": {"app.terraform.io": {"token": "'"${TF_CLOUD_TOKEN}"'"}}}' > ~/.terraform.d/credentials.tfrc.json
         env:
           TF_CLOUD_TOKEN: ${{ secrets.TF_CLOUD_TOKEN }}
 
