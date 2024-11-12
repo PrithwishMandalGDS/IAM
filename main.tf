@@ -1,5 +1,5 @@
 module "vpc" {
-  source  = "app.terraform.io/AWS_IAM/MODULES/vpc"
+  source  = "app.terraform.io/AWS_IAM/MODULES/modules"
   version = "1.0.0"
 
   cidr_block           = "10.0.0.0/16"
